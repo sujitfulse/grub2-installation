@@ -43,7 +43,7 @@ linux /ostree/fedora-atomic-host-$SHA/$KRNL root=UUID=d230f7f0-99d3-4244-8bd9-66
 initrd /ostree/fedora-atomic-host-$SHA/$INRD
 \n}" > /mnt/boot/grub2/grub.cfg
 
-echo "install grub2 and grub.cfg generated successfully"
+echo "installed grub2 and grub.cfg generated successfully"
 #cat /mnt/boot/grub2/grub.cfg
 umount /mnt
 qemu-nbd -d /dev/nbd0
