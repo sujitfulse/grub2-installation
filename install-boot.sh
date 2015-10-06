@@ -2,7 +2,7 @@
 
 #mounting disk as nbd device
 set -e
-qemu-nbd -d /dev/nbd0
+#qemu-nbd -d /dev/nbd0 #if getting nbd0 busy error, then uncomment this 
 modprobe nbd max_part=63
 qemu-nbd -c /dev/nbd0 $1
 mount /dev/nbd0p2 /mnt
