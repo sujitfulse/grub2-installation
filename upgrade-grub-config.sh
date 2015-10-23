@@ -24,15 +24,20 @@ do
         echo ${DATA[15]} $CURRENT
 
         if [ "$CURRENT" == "$OLD" ]; then
-           echo "No New Deploymnet found !!!"
+           echo "configuring bootconfig for old deployment";
+        echo -e "menuentry 'Fedora 22 (Twenty Two) Ostree OLD' { \n
+        linux "${DATA[14]}" "${DATA[3]}" "${DATA[4]}"  "${DATA[5]}" \n
+        initrd "${DATA[1]}"
+        \n}" > /boot/loader/grub1.cfg
+        fi
         fi
 
         if [ "$CURRENT" == "$NEW" ]; then
          echo "configuring bootconfig for new deployment";
-        echo -e "menuentry 'Fedora 22 (Twenty Two) Ostree' { \n
+        echo -e "menuentry 'Fedora 22 (Twenty Two) Ostree NEW' { \n
         linux "${DATA[14]}" "${DATA[3]}" "${DATA[4]}"  "${DATA[5]}" \n
         initrd "${DATA[1]}"
-        \n}" > /boot/loader/grub1.cfg
+        \n}" >> /boot/loader/grub1.cfg
         fi
 fi
 index=0
